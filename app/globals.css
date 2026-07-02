@@ -103,6 +103,16 @@ a.project-code-link:hover {
   background: var(--ac) !important;
 }
 
+.contact-form {
+  padding: 32px;
+}
+
+.contact-name-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
 /* ── Responsive ───────────────────────────────────────────────── */
 
 @media (max-width: 1100px) {
@@ -126,9 +136,15 @@ a.project-code-link:hover {
   }
 }
 
-@media (max-width: 680px) {
+@media (max-width: 768px) {
   .ed-nav-center,
   .ed-nav-right {
+    display: none !important;
+  }
+  .hamburger {
+    display: block !important;
+  }
+  .nav-page-title {
     display: none !important;
   }
   .ed-stack {
@@ -139,5 +155,11 @@ a.project-code-link:hover {
   }
   .ed-head-meta {
     display: none !important;
+  }
+  .contact-form {
+    padding: 20px !important;
+  }
+  .contact-name-row {
+    grid-template-columns: 1fr !important;
   }
 }

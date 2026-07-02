@@ -39,7 +39,7 @@ export default async function ProjectBreakdownsPage() {
             FULL-STACK · DEV
           </span>
         </Link>
-        <span style={{ fontFamily: MONO, fontSize: '13px', letterSpacing: '.1em',
+        <span className="nav-page-title" style={{ fontFamily: MONO, fontSize: '13px', letterSpacing: '.1em',
           textTransform: 'uppercase', opacity: 0.5, justifySelf: 'center' }}>
           PROJECT BREAKDOWNS
         </span>

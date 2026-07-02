@@ -38,10 +38,11 @@ export function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      style={{ background: '#F2EBDD', color: '#0E0E0C', padding: '32px',
+      className="contact-form"
+      style={{ background: '#F2EBDD', color: '#0E0E0C',
         display: 'flex', flexDirection: 'column', gap: '18px' }}
     >
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+      <div className="contact-name-row">
         {[
           { label: 'Your name', name: 'name',    type: 'text',  placeholder: 'Jane Doe' },
           { label: 'Company',   name: 'company', type: 'text',  placeholder: 'Acme Inc.' },

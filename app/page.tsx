@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { getPageData } from '@/sanity/lib/queries'
 import { urlFor } from '@/sanity/lib/image'
 import { ContactForm } from './components/ContactForm'
+import { MainNav } from './components/MainNav'
 import type { SanityImage, Project, About, SiteSettings } from '@/sanity/lib/types'
 
 // ── Font helpers (CSS vars set by layout via next/font) ──────────
@@ -183,50 +184,11 @@ export default async function Portfolio() {
       fontSize: '16px', lineHeight: 1.5, overflowX: 'clip' } as React.CSSProperties}>
 
       {/* ── NAV ─────────────────────────────────────────────── */}
-      <nav style={{ position: 'sticky', top: 0, zIndex: 50, display: 'grid',
-        gridTemplateColumns: '1fr auto 1fr', alignItems: 'center', padding: '16px 32px',
-        background: '#F2EBDD', borderBottom: '1px solid rgba(14,14,12,.18)',
-        fontFamily: MONO, fontSize: '13px', letterSpacing: '.1em', textTransform: 'uppercase' }}>
-        <a href="#about" style={{ display: 'inline-flex', alignItems: 'center',
-          color: '#0E0E0C', textDecoration: 'none', justifySelf: 'start' }}>
-          <span style={{ fontFamily: SERIF, fontStyle: 'italic', fontSize: '30px', lineHeight: 1,
-            letterSpacing: '-.03em', textTransform: 'none' }}>M</span>
-          <span style={{ fontWeight: 800, fontSize: '22px', lineHeight: 1,
-            letterSpacing: '-.05em', marginLeft: '-7px', marginTop: '8px' }}>N</span>
-          <span style={{ letterSpacing: '.14em', fontWeight: 500, marginLeft: '14px' }}>
-            {settings.tagline}
-          </span>
-        </a>
-
-        <div className="ed-nav-center" style={{ display: 'flex', gap: '32px', justifySelf: 'center' }}>
-          <a href="#work"    className="nav-link">Work</a>
-          <a href="#stack"   className="nav-link">Stack</a>
-          <a href="#about"   className="nav-link">About</a>
-          <a href="#contact" className="nav-link">Contact</a>
-        </div>
-
-        <div className="ed-nav-right" style={{ display: 'flex', gap: '20px',
-          justifyContent: 'flex-end', alignItems: 'center', justifySelf: 'end' }}>
-          {settings.isOpenToWork && (
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', opacity: 0.75 }}>
-              <span style={{ width: '7px', height: '7px', borderRadius: '50%',
-                background: 'var(--ac)', display: 'inline-block',
-                animation: 'mn-blink 1.4s ease-in-out infinite' }} />
-              Open to work
-            </span>
-          )}
-          {settings.resume?.asset?.url && (
-            <a href={settings.resume.asset.url} target="_blank" rel="noopener noreferrer"
-              className="btn-outline" style={{ display: 'inline-block',
-              padding: '9px 14px', letterSpacing: '.12em', textDecoration: 'none',
-              fontFamily: MONO, fontSize: '13px' }}>Résumé ↗</a>
-          )}
-          <a href="/project-breakdowns"
-            className="btn-dark" style={{ display: 'inline-block',
-            padding: '9px 14px', letterSpacing: '.12em', textDecoration: 'none',
-            fontFamily: MONO, fontSize: '13px' }}>Breakdowns →</a>
-        </div>
-      </nav>
+      <MainNav
+        tagline={settings.tagline}
+        isOpenToWork={settings.isOpenToWork}
+        resumeUrl={settings.resume?.asset?.url}
+      />
 
       {/* ── HERO ────────────────────────────────────────────── */}
       <header id="about" style={{ padding: 0, background: '#F2EBDD', borderBottom: '1px solid #0E0E0C' }}>
