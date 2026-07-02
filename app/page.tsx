@@ -438,7 +438,7 @@ export default async function Portfolio() {
           gap: '12px', fontFamily: MONO, fontSize: '13px', letterSpacing: '.1em',
           textTransform: 'uppercase', opacity: 0.7, marginBottom: '48px' }}>
           <span>END OF {settings.editionLabel ?? 'PORTFOLIO · v02 · EDITORIAL'}</span>
-          <span>30/06/26 · {settings.name.toUpperCase()}</span>
+          <span>{new Date().toLocaleDateString('en-GB', { day:'2-digit', month:'2-digit', year:'2-digit' }).replace(/\//g,'/')} · {settings.name.toUpperCase()}</span>
         </div>
 
         <div style={{ fontFamily: SANS, fontWeight: 800, textTransform: 'uppercase',
