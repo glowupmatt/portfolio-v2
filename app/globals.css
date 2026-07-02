@@ -1,0 +1,143 @@
+:root {
+  --ac: #D8351F;
+  --bg: #F2EBDD;
+  --fg: #0E0E0C;
+  --navy: #1A2B6B;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Animations ───────────────────────────────────────────────── */
+
+@keyframes mn-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+/* ── Hover states ─────────────────────────────────────────────── */
+
+a.nav-link {
+  color: #0E0E0C;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+a.nav-link:hover {
+  color: var(--ac);
+}
+
+.btn-dark {
+  background: #0E0E0C;
+  color: #F2EBDD;
+  transition: background 0.15s;
+}
+.btn-dark:hover {
+  background: var(--ac);
+}
+
+.btn-outline {
+  background: transparent;
+  color: #0E0E0C;
+  border: 1px solid #0E0E0C;
+  transition: background 0.15s, color 0.15s;
+}
+.btn-outline:hover {
+  background: #0E0E0C;
+  color: #F2EBDD;
+}
+
+.stack-cell {
+  cursor: default;
+  transition: background 0.15s, color 0.15s;
+}
+.stack-cell:hover {
+  background: #0E0E0C !important;
+  color: #F2EBDD !important;
+}
+
+a.footer-link {
+  color: #F2EBDD;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+a.footer-link:hover {
+  color: var(--ac);
+}
+
+a.project-live-link {
+  color: #F2EBDD;
+  text-decoration: none;
+  border-bottom: 1px solid var(--ac);
+  padding-bottom: 3px;
+  transition: color 0.15s;
+}
+a.project-live-link:hover {
+  color: var(--ac);
+}
+
+a.project-code-link {
+  color: #F2EBDD;
+  text-decoration: none;
+  opacity: 0.6;
+  transition: opacity 0.15s;
+}
+a.project-code-link:hover {
+  opacity: 1;
+}
+
+.contact-submit {
+  transition: background 0.15s;
+}
+.contact-submit:hover {
+  background: var(--ac) !important;
+}
+
+/* ── Responsive ───────────────────────────────────────────────── */
+
+@media (max-width: 1100px) {
+  .ed-strip {
+    grid-template-columns: 1fr !important;
+  }
+  .ed-feat {
+    grid-template-columns: 1fr !important;
+  }
+  .ed-feat .ed-feat-img {
+    order: -1 !important;
+  }
+  .ed-stack {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+  .ed-2col {
+    grid-template-columns: 1fr !important;
+  }
+  .ed-vids {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .ed-nav-center,
+  .ed-nav-right {
+    display: none !important;
+  }
+  .ed-stack {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .ed-head {
+    grid-template-columns: 1fr !important;
+  }
+  .ed-head-meta {
+    display: none !important;
+  }
+}
