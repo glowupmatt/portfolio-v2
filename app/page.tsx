@@ -198,7 +198,7 @@ export default async function Portfolio() {
             flexWrap: 'wrap', fontFamily: MONO, fontSize: '12px', letterSpacing: '.14em',
             textTransform: 'uppercase', opacity: 0.7 }}>
             <span>{settings.editionLabel ?? 'PORTFOLIO · v02 · EDITORIAL'}</span>
-            <span>30 / JUN / 26 · {settings.location}</span>
+            <span>{new Date().toLocaleDateString('en-GB', { day:'2-digit', month:'short', year:'2-digit' }).toUpperCase().replace(/ /g,' / ')} · {settings.location}</span>
           </div>
 
           <h1 style={{ margin: 0, fontFamily: SANS, fontWeight: 800,
@@ -495,7 +495,7 @@ export default async function Portfolio() {
           flexWrap: 'wrap', gap: '12px', fontFamily: MONO, fontSize: '12px',
           letterSpacing: '.08em', textTransform: 'uppercase', opacity: 0.7,
           paddingTop: '24px', borderTop: '1px solid rgba(242,235,221,.18)' }}>
-          <span>© 2026 {settings.name.toUpperCase()}</span>
+          <span>© {new Date().getFullYear()} {settings.name.toUpperCase()}</span>
           <span>FULL-STACK · HONEST · BUILDING</span>
         </div>
       </footer>
