@@ -224,7 +224,7 @@ export default async function Portfolio() {
             {/* Bio */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '18px', paddingBottom: '4px' }}>
               <div style={{ fontFamily: MONO, fontSize: '12px', letterSpacing: '.14em',
-                textTransform: 'uppercase', opacity: 0.7 }}>NO.03 / WHO I AM</div>
+                textTransform: 'uppercase', opacity: 0.7 }}>NO.01 / WHO I AM</div>
 
               <p style={{ margin: 0, fontFamily: SERIF, fontStyle: 'italic',
                 fontSize: 'clamp(22px,2vw,32px)', letterSpacing: '-.015em', lineHeight: 1.2 }}>
@@ -278,7 +278,7 @@ export default async function Portfolio() {
       <section id="work" style={{ background: '#1A2B6B', color: '#F2EBDD',
         padding: '64px 0', borderBottom: '1px solid rgba(242,235,221,.3)' }}>
         <SectionHeader
-          tag="NO.01 / SELECTED WORK"
+          tag="NO.02 / SELECTED WORK"
           heading={<>Featured <span style={{ fontFamily: SANS, fontStyle: 'normal', fontWeight: 800,
             textTransform: 'uppercase', letterSpacing: '-.04em' }}>projects.</span></>}
           count={`${String(displayProjects.length).padStart(2,'0')} PROJECTS`}
@@ -340,7 +340,7 @@ export default async function Portfolio() {
       <section id="stack" style={{ background: '#F2EBDD', padding: '64px 0',
         borderBottom: '1px solid rgba(14,14,12,.18)' }}>
         <SectionHeader
-          tag="NO.02 / THE STACK"
+          tag="NO.03 / THE STACK"
           heading={<>Tools I <span style={{ fontFamily: SANS, fontStyle: 'normal', fontWeight: 800,
             textTransform: 'uppercase', letterSpacing: '-.04em' }}>reach for.</span></>}
           count={`${String(displayTechs.length).padStart(2,'0')} TOOLS`}
@@ -362,7 +362,7 @@ export default async function Portfolio() {
       <section style={{ background: '#F2EBDD', padding: '64px 0',
         borderBottom: '1px solid rgba(14,14,12,.18)' }}>
         <SectionHeader
-          tag="NO.03 / WALKTHROUGHS"
+          tag="NO.04 / WALKTHROUGHS"
           heading={<>On <span style={{ fontFamily: SANS, fontStyle: 'normal', fontWeight: 800,
             textTransform: 'uppercase', letterSpacing: '-.04em' }}>video.</span></>}
           count={`${String(displayVideos.length).padStart(2,'0')} CLIPS`}
@@ -391,7 +391,7 @@ export default async function Portfolio() {
               fontFamily: MONO, fontSize: '13px', letterSpacing: '.1em', textTransform: 'uppercase',
               opacity: 0.85, paddingBottom: '24px', marginBottom: '32px',
               borderBottom: '1px solid rgba(242,235,221,.3)' }}>
-              <span>NO.04 / GET IN TOUCH</span>
+              <span>NO.05 / GET IN TOUCH</span>
             </div>
             <h2 style={{ margin: 0, fontFamily: SANS, fontWeight: 800, textTransform: 'uppercase',
               fontSize: 'clamp(56px,9vw,140px)', letterSpacing: '-.05em', lineHeight: 0.85 }}>
