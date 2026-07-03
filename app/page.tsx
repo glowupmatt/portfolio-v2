@@ -4,6 +4,7 @@ import { getPageData } from '@/sanity/lib/queries'
 import { urlFor } from '@/sanity/lib/image'
 import { ContactForm } from './components/ContactForm'
 import { MainNav } from './components/MainNav'
+import { AnimationsInit } from './components/AnimationsInit'
 import type { SanityImage, Project, About, SiteSettings } from '@/sanity/lib/types'
 
 // ── Font helpers (CSS vars set by layout via next/font) ──────────
@@ -91,10 +92,10 @@ function ImagePlaceholder({
 }
 
 function SanityImg({
-  image, label, aspectRatio, light = false, borderRadius = '14px', border,
+  image, label, aspectRatio, light = false, borderRadius = '14px', border, sizes,
 }: {
   image?: SanityImage; label: string; aspectRatio: string
-  light?: boolean; borderRadius?: string; border?: string
+  light?: boolean; borderRadius?: string; border?: string; sizes?: string
 }) {
   if (image?.asset?.url) {
     const src = urlFor(image)
@@ -109,6 +110,7 @@ function SanityImg({
           src={src}
           alt={label}
           fill
+          sizes={sizes ?? '100vw'}
           style={{ objectFit: 'cover' }}
           placeholder={image.asset.metadata?.lqip ? 'blur' : 'empty'}
           blurDataURL={image.asset.metadata?.lqip ?? undefined}
@@ -194,14 +196,14 @@ export default async function Portfolio() {
       <header id="about" style={{ padding: 0, background: '#F2EBDD', borderBottom: '1px solid #0E0E0C' }}>
         <div style={{ padding: 'clamp(36px,5vw,56px) clamp(20px,5vw,48px)',
           display: 'flex', flexDirection: 'column', gap: '40px' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', gap: '20px',
+          <div className="hero-meta" style={{ display: 'flex', justifyContent: 'space-between', gap: '20px',
             flexWrap: 'wrap', fontFamily: MONO, fontSize: '12px', letterSpacing: '.14em',
             textTransform: 'uppercase', opacity: 0.7 }}>
             <span>{settings.editionLabel ?? 'PORTFOLIO · v02 · EDITORIAL'}</span>
             <span>{new Date().toLocaleDateString('en-GB', { day:'2-digit', month:'short', year:'2-digit' }).toUpperCase().replace(/ /g,' / ')} · {settings.location}</span>
           </div>
 
-          <h1 style={{ margin: 0, fontFamily: SANS, fontWeight: 800,
+          <h1 className="hero-headline" style={{ margin: 0, fontFamily: SANS, fontWeight: 800,
             fontSize: 'clamp(72px,15vw,260px)', lineHeight: 0.82,
             letterSpacing: '-.05em', textTransform: 'uppercase' }}>
             <span style={{ fontFamily: SERIF, fontStyle: 'italic', fontWeight: 400,
@@ -216,13 +218,14 @@ export default async function Portfolio() {
           <div className="ed-strip" style={{ display: 'grid', gridTemplateColumns: '340px 1fr',
             gap: '40px', alignItems: 'start', borderTop: '1px solid #0E0E0C', paddingTop: '32px' }}>
             {/* Portrait */}
-            <div style={{ width: '100%', maxWidth: '340px' }}>
+            <div className="hero-portrait" style={{ width: '100%', maxWidth: '340px' }}>
               <SanityImg image={about.portrait} label="Portrait · 4:5" aspectRatio="4/5"
-                border="1px solid #0E0E0C" borderRadius="14px" />
+                border="1px solid #0E0E0C" borderRadius="14px"
+                sizes="(max-width: 1100px) 100vw, 340px" />
             </div>
 
             {/* Bio */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '18px', paddingBottom: '4px' }}>
+            <div className="hero-bio" style={{ display: 'flex', flexDirection: 'column', gap: '18px', paddingBottom: '4px' }}>
               <div style={{ fontFamily: MONO, fontSize: '12px', letterSpacing: '.14em',
                 textTransform: 'uppercase', opacity: 0.7 }}>NO.01 / WHO I AM</div>
 
@@ -328,7 +331,8 @@ export default async function Portfolio() {
                 </div>
               </div>
               <div className="ed-feat-img">
-                <SanityImg image={p.image} label={`Project ${p.no} · 4:3`} aspectRatio="4/3" light />
+                <SanityImg image={p.image} label={`Project ${p.no} · 4:3`} aspectRatio="4/3" light
+                  sizes="(max-width: 1100px) 100vw, 38vw" />
               </div>
             </article>
           ))}
@@ -415,6 +419,7 @@ export default async function Portfolio() {
                 <a key={link.href} href={link.href}
                   target={link.href.startsWith('http') ? '_blank' : undefined}
                   rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  className="contact-link"
                   style={{ color: '#F2EBDD', textDecoration: 'none', display: 'inline-flex',
                     gap: '10px', alignItems: 'center' }}>
                   <span style={{ width: '7px', height: '7px', borderRadius: '50%',
@@ -438,7 +443,7 @@ export default async function Portfolio() {
           <span>{new Date().toLocaleDateString('en-GB', { day:'2-digit', month:'2-digit', year:'2-digit' }).replace(/\//g,'/')} · {settings.name.toUpperCase()}</span>
         </div>
 
-        <div style={{ fontFamily: SANS, fontWeight: 800, textTransform: 'uppercase',
+        <div className="footer-big-text" style={{ fontFamily: SANS, fontWeight: 800, textTransform: 'uppercase',
           fontSize: 'clamp(64px,14vw,220px)', lineHeight: 0.82, letterSpacing: '-.05em' }}>
           <span style={{ fontFamily: SERIF, fontStyle: 'italic', fontWeight: 400,
             textTransform: 'none', letterSpacing: '-.02em' }}>building</span>{' '}
@@ -496,6 +501,8 @@ export default async function Portfolio() {
           <span>FULL-STACK · HONEST · BUILDING</span>
         </div>
       </footer>
+
+      <AnimationsInit />
     </div>
   )
 }

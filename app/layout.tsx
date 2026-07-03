@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono, Instrument_Serif } from 'next/font/google'
 import './globals.css'
+import { SmoothScroll } from './components/SmoothScroll'
 
 const geist = Geist({
   subsets: ['latin'],
@@ -29,6 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={`${geist.variable} ${geistMono.variable} ${instrumentSerif.variable}`}>
+        <SmoothScroll />
         <div style={{ maxWidth: '2560px', margin: '0 auto' }}>
           {children}
         </div>

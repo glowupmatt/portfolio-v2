@@ -9,9 +9,6 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
 
 body {
   margin: 0;
@@ -106,6 +103,13 @@ a.project-code-link {
 }
 a.project-code-link:hover {
   opacity: 1;
+}
+
+a.contact-link {
+  transition: color 0.15s;
+}
+a.contact-link:hover {
+  color: #0E0E0C !important;
 }
 
 .contact-submit {
