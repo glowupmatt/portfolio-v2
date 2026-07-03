@@ -256,17 +256,14 @@ export default async function Portfolio() {
 
               {/* CTAs */}
               <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '8px' }}>
-                <a href="#work" className="btn-dark" style={{ display: 'inline-flex',
+                <a href="https://thedrafts.dev/" target="_blank" rel="noopener noreferrer"
+                  className="btn-dark" style={{ display: 'inline-flex',
                   alignItems: 'center', gap: '10px', padding: '16px 22px', fontFamily: MONO,
                   fontSize: '13px', letterSpacing: '.14em', textTransform: 'uppercase',
-                  textDecoration: 'none' }}>See the work →</a>
-                <a href="#contact" className="btn-outline" style={{ display: 'inline-flex',
-                  alignItems: 'center', gap: '10px', padding: '16px 22px', fontFamily: MONO,
-                  fontSize: '13px', letterSpacing: '.14em', textTransform: 'uppercase',
-                  textDecoration: 'none' }}>Get in touch</a>
+                  textDecoration: 'none' }}>The Drafts ↗</a>
                 {settings.resume?.asset?.url && (
                   <a href={settings.resume.asset.url} target="_blank" rel="noopener noreferrer"
-                    className="btn-outline" style={{ display: 'inline-flex',
+                    className="btn-outline-ac" style={{ display: 'inline-flex',
                     alignItems: 'center', gap: '10px', padding: '16px 22px', fontFamily: MONO,
                     fontSize: '13px', letterSpacing: '.14em', textTransform: 'uppercase',
                     textDecoration: 'none' }}>View Résumé ↗</a>

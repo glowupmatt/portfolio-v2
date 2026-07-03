@@ -57,6 +57,18 @@ a.nav-link:hover {
   color: #F2EBDD;
 }
 
+.btn-outline-ac {
+  background: transparent;
+  color: #0E0E0C;
+  border: 1px solid #0E0E0C;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.btn-outline-ac:hover {
+  background: var(--ac);
+  color: #F2EBDD;
+  border-color: var(--ac);
+}
+
 .stack-cell {
   cursor: default;
   transition: background 0.15s, color 0.15s;
