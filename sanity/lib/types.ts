@@ -59,6 +59,20 @@ export interface PortableTextBlock {
   [key: string]: unknown
 }
 
+export interface SanityBodyImage {
+  _type:    'image'
+  _key:     string
+  alt?:     string
+  caption?: string
+  asset?: {
+    url:      string
+    metadata?: {
+      lqip?:       string
+      dimensions?: { width: number; height: number }
+    }
+  }
+}
+
 export interface Breakdown {
   _id:        string
   order:      number

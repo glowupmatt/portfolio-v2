@@ -1,7 +1,9 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { PortableText } from '@portabletext/react'
 import { getBreakdown, getBreakdowns } from '../../../sanity/lib/queries'
+import type { SanityBodyImage } from '../../../sanity/lib/types'
 
 const SERIF = "var(--font-instrument, 'Instrument Serif', serif)"
 const SANS  = "var(--font-geist, 'Geist', sans-serif)"
@@ -62,6 +64,33 @@ const ptComponents = {
       <code style={{ fontFamily: MONO, fontSize: '13px', background: 'rgba(14,14,12,.07)',
         padding: '2px 6px' }}>{children}</code>
     ),
+  },
+  types: {
+    image: ({ value }: { value: SanityBodyImage }) => {
+      if (!value?.asset?.url) return null
+      const w = value.asset.metadata?.dimensions?.width  ?? 1200
+      const h = value.asset.metadata?.dimensions?.height ?? 675
+      return (
+        <figure style={{ margin: '48px 0' }}>
+          <Image
+            src={value.asset.url}
+            alt={value.alt ?? ''}
+            width={w}
+            height={h}
+            style={{ width: '100%', height: 'auto', display: 'block',
+              border: '1px solid rgba(14,14,12,.12)' }}
+            placeholder={value.asset.metadata?.lqip ? 'blur' : 'empty'}
+            blurDataURL={value.asset.metadata?.lqip ?? undefined}
+          />
+          {value.caption && (
+            <figcaption style={{ fontFamily: MONO, fontSize: '11px', letterSpacing: '.1em',
+              textTransform: 'uppercase', opacity: 0.5, marginTop: '12px' }}>
+              {value.caption}
+            </figcaption>
+          )}
+        </figure>
+      )
+    },
   },
 }
 

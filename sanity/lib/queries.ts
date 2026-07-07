@@ -46,7 +46,17 @@ export async function getBreakdowns(): Promise<Breakdown[]> {
 
 export async function getBreakdown(slug: string): Promise<Breakdown | null> {
   return client.fetch<Breakdown | null>(
-    `*[_type == "breakdown" && slug.current == $slug][0] { ..., heroImage { asset->{ url, metadata { lqip } }, hotspot, crop } }`,
+    `*[_type == "breakdown" && slug.current == $slug][0] {
+      ...,
+      heroImage { asset->{ url, metadata { lqip } }, hotspot, crop },
+      body[] {
+        ...,
+        _type == "image" => {
+          ...,
+          asset->{ url, metadata { lqip, dimensions { width, height } } }
+        }
+      }
+    }`,
     { slug },
     { next: { revalidate: 60 } }
   )
