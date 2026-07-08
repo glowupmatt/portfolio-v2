@@ -21,7 +21,7 @@ const instrumentSerif = Instrument_Serif({
 })
 
 export const metadata: Metadata = {
-  title: 'Matthew Nicholson — Full-Stack Developer',
+  title: 'Matthew Nicholson — Portfolio',
   description:
     'Full-stack developer based in Brooklyn → Remote. Building with TypeScript, React & Node.',
 }

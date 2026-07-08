@@ -197,7 +197,7 @@ export default async function Portfolio() {
         <div style={{ padding: 'clamp(36px,5vw,56px) clamp(20px,5vw,48px)',
           display: 'flex', flexDirection: 'column', gap: '40px' }}>
           <div className="hero-meta" style={{ display: 'flex', justifyContent: 'space-between', gap: '20px',
-            flexWrap: 'wrap', fontFamily: MONO, fontSize: '12px', letterSpacing: '.14em',
+            flexWrap: 'wrap', overflow: 'hidden', fontFamily: MONO, fontSize: '12px', letterSpacing: '.14em',
             textTransform: 'uppercase', opacity: 0.7 }}>
             <span>{settings.editionLabel ?? 'PORTFOLIO · v02 · EDITORIAL'}</span>
             <span>{new Date().toLocaleDateString('en-GB', { day:'2-digit', month:'short', year:'2-digit' }).toUpperCase().replace(/ /g,' / ')} · {settings.location}</span>
@@ -437,7 +437,7 @@ export default async function Portfolio() {
       <footer style={{ padding: '96px clamp(20px,5vw,32px) 48px',
         background: '#0E0E0C', color: '#F2EBDD' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap',
-          gap: '12px', fontFamily: MONO, fontSize: '13px', letterSpacing: '.1em',
+          gap: '12px', overflow: 'hidden', fontFamily: MONO, fontSize: '13px', letterSpacing: '.1em',
           textTransform: 'uppercase', opacity: 0.7, marginBottom: '48px' }}>
           <span>END OF {settings.editionLabel ?? 'PORTFOLIO · v02 · EDITORIAL'}</span>
           <span>{new Date().toLocaleDateString('en-GB', { day:'2-digit', month:'2-digit', year:'2-digit' }).replace(/\//g,'/')} · {settings.name.toUpperCase()}</span>
@@ -494,7 +494,7 @@ export default async function Portfolio() {
         </div>
 
         <div style={{ marginTop: '64px', display: 'flex', justifyContent: 'space-between',
-          flexWrap: 'wrap', gap: '12px', fontFamily: MONO, fontSize: '12px',
+          flexWrap: 'wrap', gap: '12px', overflow: 'hidden', fontFamily: MONO, fontSize: '12px',
           letterSpacing: '.08em', textTransform: 'uppercase', opacity: 0.7,
           paddingTop: '24px', borderTop: '1px solid rgba(242,235,221,.18)' }}>
           <span>© {new Date().getFullYear()} {settings.name.toUpperCase()}</span>

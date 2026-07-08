@@ -156,9 +156,16 @@ export default async function ProjectBreakdownsPage() {
       {/* ── FOOTER ── */}
       <footer style={{ borderTop: '1px solid rgba(14,14,12,.18)', padding: '32px clamp(20px,5vw,48px)',
         display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+        flexWrap: 'wrap', gap: '12px', overflow: 'hidden',
         fontFamily: MONO, fontSize: '12px', letterSpacing: '.1em', textTransform: 'uppercase',
         opacity: 0.6 }}>
-        <span>© 2026 MATTHEW NICHOLSON</span>
+        <Link href="/" style={{ display: 'inline-flex', alignItems: 'center',
+          color: '#0E0E0C', textDecoration: 'none' }}>
+          <span style={{ fontFamily: SERIF, fontStyle: 'italic', fontSize: '30px', lineHeight: 1,
+            letterSpacing: '-.03em', textTransform: 'none' }}>M</span>
+          <span style={{ fontWeight: 800, fontSize: '22px', lineHeight: 1,
+            letterSpacing: '-.05em', marginLeft: '-7px', marginTop: '8px' }}>N</span>
+        </Link>
         <Link href="/" style={{ color: '#0E0E0C', textDecoration: 'none' }}>
           ← BACK TO PORTFOLIO
         </Link>
