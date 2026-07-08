@@ -23,7 +23,7 @@ const instrumentSerif = Instrument_Serif({
 export const metadata: Metadata = {
   title: 'Matthew Nicholson — Portfolio',
   description:
-    'Full-stack developer based in Brooklyn → Remote. Building with TypeScript, React & Node.',
+    'Full-stack developer based in Seattle. Building with TypeScript, React & Node.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
